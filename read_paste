@@ -3,7 +3,6 @@
 # TODO:
 #   finish the damn thing
 #   add languages to config file
-#     add more info on how to use config file
 #   add --quiet and --force-progress
 #   by default, only display progress when using -e
 #   possible option to use uname/passwd
@@ -210,7 +209,9 @@ format. Normally writes to stdout, unless -e or --editor is used.
   -a, --add SYN=LANG    add SYN to the configuration file. LANG must be a *.vim
                         file in your vim's VIMRUNTIME or in ~/.vim/syntax. the
                         .vim on the file may be omitted. This option can be
-                        used multiple times, to add multiple syntaxes
+                        used multiple times, to add multiple syntaxes. Any
+                        existing SYN in the file will be overwritten with the
+                        new value for LANG.
   -l, --list            list available values for SYN and exit
   -r, --remove-cr       force removal of carriage returns (ASCII 13) from
                         downloaded files

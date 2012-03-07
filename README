@@ -16,7 +16,9 @@ format. Normally writes to stdout, unless -e or --editor is used.
   -a, --add SYN=LANG    add SYN to the configuration file. LANG must be a *.vim
                         file in your vim's VIMRUNTIME or in ~/.vim/syntax. the
                         .vim on the file may be omitted. This option can be
-                        used multiple times, to add multiple syntaxes
+                        used multiple times, to add multiple syntaxes. Any
+                        existing SYN in the file will be overwritten with the
+                        new value for LANG.
   -l, --list            list available values for SYN and exit
   -r, --remove-cr       force removal of carriage returns (ASCII 13) from
                         downloaded files
@@ -32,3 +34,11 @@ Currently supported pastebins:
   paste.pocoo.org
   pastie.org
   sprunge.us
+
+
+syntaxes.conf:
+  This file contains the valid syntaxes for -H. Each line contains two fields,
+  key:value.  "key" is the term that read_paste looks for, when determining
+  what language to use syntax highlighting for. "value" is the appropriate
+  *.vim file in your VIMRUNTIME/syntax directory. The '.vim' at the end is
+  omitted in the config. 
