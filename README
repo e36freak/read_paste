@@ -1,0 +1,34 @@
+read_paste [OPTIONS] URL
+
+Downloads URL, getting the raw format for the supported pastebins. If URL is
+not one of the supported pastebins, it is treated as already being in a raw
+format. Normally writes to stdout, unless -e or --editor is used.
+
+ Options:
+  -h, --help            display this help and exit
+  -e, --editor          opens file with vim after downloading
+  -H, --highlight SYN   when using the -e or --editor option, tells vim
+                        what the filetype is for syntax highlighting. while this
+                        program will automatically try to get this information
+                        from the site, doing so will not always be possible.
+                        this option will override any information acquired from
+                        the site.
+  -a, --add SYN=LANG    add SYN to the configuration file. LANG must be a *.vim
+                        file in your vim's VIMRUNTIME or in ~/.vim/syntax. the
+                        .vim on the file may be omitted. This option can be
+                        used multiple times, to add multiple syntaxes
+  -l, --list            list available values for SYN and exit
+  -r, --remove-cr       force removal of carriage returns (ASCII 13) from
+                        downloaded files
+  -f, --file FILE       if -e is not used, write to FILE instead of stdout. if
+                        -e is used, use FILE instead of a temp file
+
+Valid syntaxes for -H are stored in:
+  "${XDG_CONFIG_HOME:-$HOME/.config}/read_paste/syntaxes.conf"
+
+Currently supported pastebins:
+  gist.github.com
+  pastebin.com (will automatically remove CRs)
+  paste.pocoo.org
+  pastie.org
+  sprunge.us
