@@ -281,6 +281,7 @@ unset options
 # actually parse the options and do stuff
 while [[ $1 = -?* ]]; do
   case $1 in
+    -h|--help) usage >&2; exit 0;;
     -e|--editor) editor=1;;
     -H|--highlight)
       [[ $2 ]] || die "no language provided for $1"
@@ -303,7 +304,6 @@ while [[ $1 = -?* ]]; do
       outfile=$2
       shift
       ;;
-    -h|--help) usage; exit 0;;
     --endopts) shift; break;;
     *) die "invalid option: $1";;
   esac
